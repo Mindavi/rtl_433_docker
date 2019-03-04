@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  rtl_433:
+    build: .
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
