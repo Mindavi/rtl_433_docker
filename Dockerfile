@@ -9,6 +9,8 @@ RUN cmake ..
 RUN make -j
 
 from alpine:3.9
+RUN mkdir rtl
+WORKDIR rtl
 RUN apk add --no-cache librtlsdr --repository http://nl.alpinelinux.org/alpine/edge/testing
 COPY --from=builder /rtl_433/build/src/rtl_433 /usr/bin/rtl_433
 ENTRYPOINT ["/usr/bin/rtl_433"]
